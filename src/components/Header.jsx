@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { useLogin } from "../hook/useLogin";
 
 const Header = () => {
     const linkClassName = 'menu-item__link';
@@ -8,6 +9,8 @@ const Header = () => {
             ? activeLinkClassName
             : linkClassName
     );
+
+    const {user} = useLogin();
 
     return (
         <div className="container">
@@ -24,6 +27,25 @@ const Header = () => {
                     </li>
                     <li>
                         <NavLink to="/post" className={isActiveHandler}>Post</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to=
+                            {
+                                user
+                                ? '/'
+                                : '/login'
+                            } 
+                        
+                            className={isActiveHandler}>
+                            {
+                                user
+                                    ? 'LogOut'
+                                    : 'LogIn'
+                            }
+                        </NavLink>
+                    </li>
+                    <li>
+                        
                     </li>
                 </ul>
             </nav>

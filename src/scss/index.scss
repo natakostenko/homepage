@@ -60,6 +60,10 @@ input {
 
 }
 
+.nav-btns-block {
+  display: flex;
+}
+
 .inner {
   &__nav {
     display: flex;

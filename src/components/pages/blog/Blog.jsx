@@ -5,6 +5,7 @@ export const Blog = () => {
 
     return (
         <div className="page-content">
+            <Link to="/blog/new">Create new post</Link>
             <h1>Blog</h1>
             {
                 blogPosts.map(item => {

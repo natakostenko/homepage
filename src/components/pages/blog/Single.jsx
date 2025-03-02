@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { blogPosts } from "../../../data";
 
 export const Single = () => {
@@ -9,6 +9,7 @@ export const Single = () => {
 
     return (
         <div className="page-content">
+            <Link to="/blog">Return to blog page...</Link>
             <h1>Single page</h1>
 
             <div className="single-blog-post">

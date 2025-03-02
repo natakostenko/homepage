@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 export const SinglePost = () => {
     const [post, setPost] = useState([]);
@@ -23,7 +23,8 @@ export const SinglePost = () => {
 
     return (
         <div className="page-content">
-          <h1>Single page</h1>
+            <Link to="/post">Return to post page...</Link>
+            <h1>Single page</h1>
 
             <div className="single-post">
                 <h3 className="single-post__title">{title}</h3>
