@@ -1,23 +1,20 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { getPost } from "../../../actions";
 
 export const SinglePost = () => {
-    const [post, setPost] = useState([]);
-    const {id} = useParams();
+    const [post, setPost] = useState(null);
+    const { id } = useParams();
 
     useEffect(() => {
-        const fetchPosts = async () => {
-            try {
-                const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
-                const data = await response.json();
-                setPost(data);
-            } catch (error) {
-                console.error("Error fetching posts:", error);
-            }
-        };
-
-        fetchPosts();
+        (async () => {
+            const data = await getPost(id);
+            setPost(data);
+        })()
     }, []);
+
+    
+    if (!post) return null;
 
     const { title, body } = post;
 

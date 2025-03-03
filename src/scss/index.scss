@@ -27,7 +27,7 @@ input {
 }
 
 .container {
-  max-width: 500px;
+  width: 500px;
   margin: 0 auto;
 }
 
@@ -35,7 +35,12 @@ input {
 
 }
 
-.menu {}
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .menu-list {
   display: flex;
   justify-content: center;
@@ -58,6 +63,14 @@ input {
 
 .main {
 
+}
+
+.login-btn {
+  text-decoration: none;
+  color: black;
+  padding: 10px;
+  background: none;
+  border: 1px solid silver;
 }
 
 .nav-btns-block {

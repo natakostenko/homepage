@@ -1,21 +1,15 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { getPosts } from "../../../actions";
 
 export const Post = () => {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        const fetchPosts = async () => {
-            try {
-                const response = await fetch("https://jsonplaceholder.typicode.com/posts");
-                const data = await response.json();
-                setPosts(data);
-            } catch (error) {
-                console.error("Error fetching posts:", error);
-            }
-        };
-
-        fetchPosts();
+        (async () => {
+            const data = await getPosts();
+            setPosts(data);
+        })()
     }, []);
 
     return (

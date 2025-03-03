@@ -1,7 +1,8 @@
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useLogin } from "../../hook/useLogin";
 
 export const Login = () => {
+    const {state} = useLocation();
     const {signIn} = useLogin();
     const navigate = useNavigate();
 
@@ -9,7 +10,7 @@ export const Login = () => {
         event.preventDefault();
         const form = event.target;
         const user = form.user.value;
-        signIn(user, () => navigate('/blog/new'));
+        signIn(user, () => navigate(state?.from || '/'));
     }
 
     return (
